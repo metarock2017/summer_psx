@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+        <h1><%= title %></h1>
+        <p>Welcome to <%= title %></p>
+
+
+
+
+    <script type="text/javascript">
+   //WEB页主线程
+        var worker =new Worker("worker.js"); //创建一个Worker对象并向它传递将在新线程中执行的脚本的URL
+        worker.postMessage("hello world");     //向worker发送数据
+        worker.onmessage = function(e){     //接收worker传过来的数据函数
+        console.log(e.data);              // 输出worker发送来的数据
+        }
+    </script>
+    </body>
+</html>
