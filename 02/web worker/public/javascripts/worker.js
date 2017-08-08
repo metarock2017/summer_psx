@@ -2,6 +2,7 @@ self.addEventListener('message', function(e) {
     var _data = e.data;
     var _arr = _data.split(",");
     console.log(_arr);
+    //选择排序算法
     function selectSort(arr) {
         var len = arr.length;
         var minIndex, temp;

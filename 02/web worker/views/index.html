@@ -11,7 +11,6 @@
         
     </div>
     
-
     <script type="text/javascript" src="../javascripts/jquery.js"></script>
     <script type="text/javascript">
         var worker =new Worker("../javascripts/worker.js"); 
@@ -23,7 +22,7 @@
             worker.postMessage(data);
             //接收数据函数
             worker.onmessage = function(e){     
-            // 输出worker发送来的数据
+            // 输出数据
             var newData = e.data.join(",");
             console.log(newData); 
             $(".result").html("<span>结果是：" + newData +"</span>"); 
