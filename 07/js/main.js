@@ -18,22 +18,29 @@ function getColor() {
     return color;
 }
 
-
+//生成小球
 function getBall(i) {
     var container = document.querySelector('.container');
     var newball = document.createElement("div");
     newball.className = 'ball';
     document.querySelector('.container').appendChild(newball);
-    var tempX = getRandom(0, innerWidth - 120);
-    var tempY = getRandom(0, innerHeight - 120);
     var ball = document.querySelectorAll('.ball')[i];
+    console.log(ball.clienWidth);
+    var tempX = getRandom(0, innerWidth - ball.offsetWidth);
+    var tempY = getRandom(0, innerHeight - ball.offsetHeight);
+    var width = getRandom(20,80);
+    var height = width;
+    var radius = width/2;
     ball.style.left = tempX + 'px';
     ball.style.top = tempY + 'px';
+    ball.style.width = width + 'px';
+    ball.style.height = height + 'px';
+    ball.style.borderRadius = radius;
     ball.style.backgroundColor = getColor();
 }
 
 
-
+//小球移动
 function move(i) {
     var speedX = getRandom(5, 10) - 7.5;
     var speedY = getRandom(5, 10) - 7.5;
@@ -42,45 +49,38 @@ function move(i) {
     var left = parseInt(ball.style.left);
     console.log(left);
     var top = parseInt(ball.style.top);
-    setInterval(function(){
+    setInterval(function() {
         left += speedX;
         top += speedY;
         ball.style.left = left + 'px';
         ball.style.top = top + 'px';
-        if(left < 0 || left > (innerWidth - 85)){
-            speedX = - speedX;
+        if (left < 0) {
+            speedX = -speedX;
+            left = 0;
             ball.style.backgroundColor = getColor();
-        } else if (top < 0 || top > (innerHeight - 85)){
+        } else if (top < 0) {
+            top = 0;
             speedY = -speedY;
             ball.style.backgroundColor = getColor();
+        } else if (left > (innerWidth - ball.offsetWidth - 5)) {
+            left = innerWidth - ball.offsetWidth - 5;
+            speedX = -speedX;
+            ball.style.backgroundColor = getColor();
+
+        } else if (top > (innerHeight - ball.offsetHeight - 5)) {
+            speedY = -speedY;
+            top = innerHeight - ball.offsetHeight - 5;
+            ball.style.backgroundColor = getColor();
+
         }
-    },1);
+    }, 1);
     console.log(left);
 }
 
-for(var i = 0; i < 10; i++){
+for (var i = 0; i < 10; i++) {
     getBall(i);
     move(i);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -105,7 +105,7 @@ for(var i = 0; i < 10; i++){
 
 // //小球移动
 // Ball.prototype.move = function() {
-    
+
 // }
 
 // var ball = new Ball();
