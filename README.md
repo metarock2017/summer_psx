@@ -35,7 +35,7 @@ $node app.js
 
 ## 04 图片上传
 
-```
+```javascript
 $npm install
 $npm start
 ```
@@ -51,3 +51,26 @@ $npm start
 使用了express框架
 
 mysql连接文件在connect.js中
+
+
+
+## 06 注册登录聊天室
+
+```
+$npm install
+$npm start
+```
+
+3300端口
+
+登录注册没问题
+
+聊天室还有小bug  先传了  尽快修复..
+
+
+
+## 07 小球碰撞
+
+本来是想用下面的方法写的  
+
+有点点小bug  窗口直接变大变小会有小球卡住  会重新写一下碰撞检测
