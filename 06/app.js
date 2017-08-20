@@ -8,9 +8,14 @@ var routes = require('./routes/index');
 var session = require('express-session'); 
 var mysql = require('mysql');
 
-var app = express();
 
-app.set('port', process.env.PORT || 3000);
+var app = express();
+var server = app.listen(3300);
+
+var io = require('socket.io').listen(server);
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,9 +38,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 routes(app);
 
-app.listen(3300, function(){
-  console.log('listening on *:3300');
-});
 
 
 // catch 404 and forward to error handler

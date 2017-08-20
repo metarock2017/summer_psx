@@ -1,10 +1,10 @@
 var db = require('../connect');
 var app = require('express')();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+
 
 /* GET home page. */
-module.exports = function(app, io) {
+module.exports = function(app) {
     app.get('/', function(req, res) {
         if (!req.session.users) {
             res.sendfile('views/login.html');
@@ -65,13 +65,9 @@ module.exports = function(app, io) {
     })
 
   
-    io.on('connection', function(socket) {
-        console.log('a user connected');
-    });
+    // io.on('connection', function(socket) {
+    //     console.log('a user connected');
+    // });
 
-    io.on('connection', function(socket) {
-        socket.on('chat message', function(msg) {
-            console.log('message: ' + msg);
-        });
-    });
+    
 };

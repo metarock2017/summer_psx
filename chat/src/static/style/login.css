@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 400px;
+    height: 250px;
+    margin: 80px auto;
+    background-color: #ACD6FF;
+    border-radius: 7px;
+}
+
+.tit{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 35px;
+    color: #B8B8DC;
+}
+
+.container input{
+    float: right;
+    display: block; 
+    height: 23px;
+    width: 220px;
+    padding-left: 20px; 
+    margin: 15px 30px 15px 5px;
+    border-radius: 4px;
+}
+
+.user,
+.pwd {
+    overflow: hidden;
+}
+
+.user span,
+.pwd span{
+    display: block;
+    float: left;
+    margin-top: 13px;
+    margin-left: 20px;
+    line-height: 27px;
+}
+
+.btn{
+    width: 100px;
+    height: 30px;
+    margin: 15px 15px 10px 150px;
+}
+
+a{
+    text-decoration: none;
+    color: #BB3D00;
+}
