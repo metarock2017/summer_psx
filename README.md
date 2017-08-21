@@ -79,7 +79,9 @@ $npm start
 
 强化了很多注册登录
 
-但是socekt连接的时候依然报错 始终解决不了
+改掉了bug 
+
+增加了session
 
 
 

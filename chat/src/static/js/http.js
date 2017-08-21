@@ -14,6 +14,7 @@ function getApi(key){
 
 }
 
+
 /**
  * 封装一个请求对象
  * @param  {[type]} key       [URL MAP 对应的KEY值]

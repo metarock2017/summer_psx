@@ -1,4 +1,3 @@
-var http = require('http');
 var path = require('path');
 var routes = require('./server/routes');
 var bodyParser = require('body-parser');
@@ -25,14 +24,28 @@ app.use('/static', express.static('src/static'));
 
 routes(app, __dirname);
 
-var server = http.createServer(app);
 
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+  });
+});
+   
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
-});
-
-server.listen(port, function() {
-    console.log("Listening on %j", server.address());
 });

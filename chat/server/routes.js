@@ -8,6 +8,7 @@ module.exports = function(app, dirPath) {
     app.get('/', function(req, res) {
         if (!req.session.username) {
             res.redirect('/login');
+            console.log(dirPath);
         } else {
             res.sendfile(dirPath + '/src/views/index.html');
         }

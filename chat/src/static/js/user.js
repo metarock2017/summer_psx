@@ -10,9 +10,7 @@ function login() {
     // 登陆请求对象
     var req = packReq('LOGIN', 'POST', null, data);
     request(req, function(result){
-
         window.location.href = '/chat';
-
     })
 
 }
@@ -38,7 +36,7 @@ function register(){
         "password": pwdValue
     };
 
-    // 登陆请求对象
+    //请求对象
     var req = packReq('REGISTER', 'POST', null, data);
     request(req, function(result){
 
